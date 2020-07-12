@@ -13,7 +13,7 @@ Enzyme.configure({ adapter: new EnzymeAdapter() });
  * @returns {ShallowWrapper}
  */
 const setup = (props = {}, state = null) => {
-  return shallow(<App {...props}></App>);
+  return shallow(<App {...props} />);
 };
 
 /**
@@ -44,6 +44,10 @@ test("renders counter display", () => {
   expect(counterDisplay.length).toBe(1);
 });
 
-test("should counter starts at 0", () => {});
+test("should counter starts at 0", () => {
+  const wrapper = setup();
+  const initialCounterState = wrapper.state("counter");
+  expect(initialCounterState).toBe(0);
+});
 
 test("should button click increments counter display", () => {});
