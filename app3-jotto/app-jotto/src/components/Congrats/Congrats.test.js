@@ -7,6 +7,8 @@ import { findByTestAttr, checkProps } from "../../../test/testUtils";
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 
+const defaultProps = { success: false };
+
 /**
  * Factory function to create a ShallowWrapper for the App Component.
  * @function
@@ -14,7 +16,8 @@ Enzyme.configure({ adapter: new EnzymeAdapter() });
  * @returns {ShallowWrapper}
  */
 const setup = (props = {}) => {
-  return shallow(<Congrats {...props} />);
+  const setupProps = { ...defaultProps, ...props };
+  return shallow(<Congrats {...setupProps} />);
 };
 
 test("renders without error", () => {
