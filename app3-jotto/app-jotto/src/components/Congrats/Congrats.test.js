@@ -1,7 +1,6 @@
 import React from "react";
 import Enzyme, { shallow } from "enzyme";
 import EnzymeAdapter from "enzyme-adapter-react-16";
-import checkPropTypes from "check-prop-types";
 
 import Congrats from "./index";
 import { findByTestAttr, checkProps } from "../../../test/testUtils";
@@ -19,7 +18,7 @@ const setup = (props = {}) => {
 };
 
 test("renders without error", () => {
-  const wrapper = setup();
+  const wrapper = setup({ success: false });
   const component = findByTestAttr(wrapper, "component-congrats");
   expect(component.length).toBe(1);
 });
