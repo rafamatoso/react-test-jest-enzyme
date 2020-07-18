@@ -16,6 +16,6 @@ export default (props) => {
       </div>
     );
   } else {
-    return <div />;
+    return <div data-test="component-congrats" />;
   }
 };
