@@ -1,13 +1,12 @@
 import React from "react";
 import { shallow } from "enzyme";
-
-import Congrats from "./index";
 import { findByTestAttr, checkProps } from "../../../test/testUtils";
+import Congrats from "./index";
 
 const defaultProps = { success: false };
 
 /**
- * Factory function to create a ShallowWrapper for the App Component.
+ * Factory function to create a ShallowWrapper for the Congrats Component.
  * @function
  * @param {object} props - Component props specific to this setup.
  * @returns {ShallowWrapper}
