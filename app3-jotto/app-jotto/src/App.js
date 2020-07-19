@@ -1,24 +1,25 @@
-import React from "react";
+import React, { Component } from "react";
 import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import GuessedWords from "./components/GuessedWords";
+import Congrats from "./components/Congrats";
+
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <h1>Jotto</h1>
+        <Congrats success={true} />
+        <GuessedWords
+          guessedWords={[
+            { guessedWord: "train", letterMatchCount: 3 },
+            { guessedWord: "agile", letterMatchCount: 1 },
+            { guessedWord: "party", letterMatchCount: 5 },
+          ]}
+        />
+      </div>
+    );
+  }
 }
 
 export default App;
