@@ -5,7 +5,7 @@ import { findByTestAttr, storeFactory } from "../../../test/testUtils";
 import Input from "./";
 
 /**
- * Factory function to create a ShallowWrapper for the GuessedWords component.
+ * Factory function to create a ShallowWrapper for the Input component.
  * @function setup
  * @param {object} initialState
  * @returns {ShallowWrapper}
