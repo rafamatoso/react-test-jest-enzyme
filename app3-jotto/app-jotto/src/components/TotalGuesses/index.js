@@ -15,7 +15,7 @@ const TotalGuesses = (props) => {
 };
 
 TotalGuesses.propTypes = {
-  guessesCount: PropTypes.number.isRequired,
+  guessesCount: PropTypes.number,
 };
 
 export default TotalGuesses;

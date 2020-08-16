@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import TotalGuesses from "../TotalGuesses";
+
 const GuessedWords = (props) => {
   let contents;
   if (props.guessedWords.length === 0) {
@@ -16,18 +18,21 @@ const GuessedWords = (props) => {
     ));
 
     contents = (
-      <div data-test="guessed-words">
-        <h3>Guessed Words</h3>
-        <table className="table table-sm">
-          <thead className="thead-light">
-            <tr>
-              <th>Guess</th>
-              <th>Matching Letters</th>
-            </tr>
-          </thead>
-          <tbody>{guessedWordsRow}</tbody>
-        </table>
-      </div>
+      <>
+        <div data-test="guessed-words">
+          <h3>Guessed Words</h3>
+          <table className="table table-sm">
+            <thead className="thead-light">
+              <tr>
+                <th>Guess</th>
+                <th>Matching Letters</th>
+              </tr>
+            </thead>
+            <tbody>{guessedWordsRow}</tbody>
+          </table>
+        </div>
+        <TotalGuesses guessesCount={0} />
+      </>
     );
   }
   return <div data-test="component-guessed-words">{contents}</div>;
