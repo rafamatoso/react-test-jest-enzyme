@@ -1,14 +1,17 @@
 h1,
 h2,
 h3,
-h4,
-h5,
-h6,
-p,
-input,
-button {
-  padding: 0;
-  margin: 0;
+h4 {
+  margin: 8px 0;
+}
+
+th {
+  padding: 4px 8px !important;
+  border: 1px solid #757575;
+}
+
+td {
+  padding: 4px 16px !important;
 }
 
 input {
@@ -20,7 +23,7 @@ input {
 
 input,
 button {
-  animation: shadow 3s forwards;
+  animation: shadow 6s forwards;
 }
 
 @keyframes shadow {
@@ -32,17 +35,21 @@ button {
   }
 }
 
-h1,
-h2,
-h3 {
-  margin: 8px 0;
+h4 {
+  position: relative;
+  animation-name: move;
+  animation-duration: 3s;
+  animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-th {
-  padding: 4px 8px !important;
-  border: 1px solid #757575;
-}
-
-td {
-  padding: 4px 16px !important;
+@keyframes move {
+  0% {
+    left: 0px;
+  }
+  50% {
+    left: 100px;
+  }
+  100% {
+    left: 0px;
+  }
 }
