@@ -1,0 +1,48 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+input,
+button {
+  padding: 0;
+  margin: 0;
+}
+
+input {
+  height: 38px;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #757575;
+}
+
+input,
+button {
+  animation: shadow 3s forwards;
+}
+
+@keyframes shadow {
+  from {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 2px 10px 0 rgba(0, 0, 0, 0.19);
+  }
+  to {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+}
+
+h1,
+h2,
+h3 {
+  margin: 8px 0;
+}
+
+th {
+  padding: 4px 8px !important;
+  border: 1px solid #757575;
+}
+
+td {
+  padding: 4px 16px !important;
+}

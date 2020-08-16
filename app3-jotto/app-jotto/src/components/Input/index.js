@@ -13,7 +13,7 @@ export class UnconnectedInput extends Component {
     super(props);
 
     // initialize state
-    this.state = { currentGuess: null };
+    this.state = { currentGuess: "" };
 
     // bind this for submitGuessedWord
     this.submitGuessedWord = this.submitGuessedWord.bind(this);
@@ -26,15 +26,16 @@ export class UnconnectedInput extends Component {
 
     if (guessedWord && guessedWord.length > 0) {
       this.props.guessWord(guessedWord);
+      this.setState({ currentGuess: "" });
     }
   }
 
   render() {
     const contents = this.props.success ? null : (
-      <form className="form-inline">
+      <form className="form-inline my-3">
         <input
           data-test="input-box"
-          className="mb-2 mx-sm-3"
+          className="mr-sm-3"
           type="text"
           placeholder="enter guess"
           value={this.state.currentGuess}
@@ -42,11 +43,11 @@ export class UnconnectedInput extends Component {
         />
         <button
           data-test="submit-button"
-          className="btn btn-primary mb-2"
+          className="btn btn-primary"
           type="submit"
           onClick={(e) => this.submitGuessedWord(e)}
         >
-          Submit
+          Guess
         </button>
       </form>
     );
