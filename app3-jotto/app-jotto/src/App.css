@@ -2,7 +2,7 @@ h1,
 h2,
 h3,
 h4 {
-  margin: 8px 0;
+  margin: 24px 0;
 }
 
 th {
@@ -47,7 +47,7 @@ h1 {
     left: 0px;
   }
   50% {
-    left: 100px;
+    left: 185px;
   }
   100% {
     left: 0px;

@@ -14,5 +14,5 @@ const setup = (props = {}) => {
 test("renders without error", () => {
   const wrapper = setup();
   const component = findByTestAttr(wrapper, "component-total-guesses");
-  expect(component.length).toBe(0);
+  expect(component.length).toBe(1);
 });
