@@ -118,9 +118,7 @@ export const resetGame = () => {
 export const giveUp = () => {
   return { type: actionsTypes.GIVE_UP };
 };
-// END: Challenge #3: Give Up Button
 
-// Challenge #4: Enter Secret Word
 /**
  * Action creator to dispatch USER_ENTERED and SET_SECRET_WORD actions.
  * @function setUserSecretWord
