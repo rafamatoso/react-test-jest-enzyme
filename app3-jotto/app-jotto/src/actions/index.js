@@ -46,22 +46,22 @@ export const guessWord = (guessedWord) => {
  * @param {dispatch} dispatch - Redux Thunk dispatch.
  *
  */
-const getSecretWordDispatch = (dispatch) => {
-  return (
-    axios
-      .get("http://localhost:3030")
-      .then((response) => {
-        dispatch({
-          type: actionsTypes.SET_SECRET_WORD,
-          payload: response.data,
-        });
-      })
-      // note: axios rejects promise if status is 4xx or 5xx
-      .catch((err) => {
-        dispatch({ type: actionsTypes.SERVER_ERROR });
-      })
-  );
-};
+// const getSecretWordDispatch = (dispatch) => {
+//   return (
+//     axios
+//       .get("http://localhost:3030")
+//       .then((response) => {
+//         dispatch({
+//           type: actionsTypes.SET_SECRET_WORD,
+//           payload: response.data,
+//         });
+//       })
+//       // note: axios rejects promise if status is 4xx or 5xx
+//       .catch((err) => {
+//         dispatch({ type: actionsTypes.SERVER_ERROR });
+//       })
+//   );
+// };
 
 /**
  * Dispatch axios action to get secret word from Wordnik.
@@ -76,10 +76,6 @@ const getSecretWordWordnikDispatch = (dispatch) => {
     .then((response) => {
       dispatch({
         type: actionsTypes.SET_SECRET_WORD,
-        // NOTE: to be true to the rules of jotto here,
-        // we would reject any word with duplicate letters
-        // and try again. However, my commitment to Jotto is
-        // not that strong right now. :p
         payload: response.data.word,
       });
     })
