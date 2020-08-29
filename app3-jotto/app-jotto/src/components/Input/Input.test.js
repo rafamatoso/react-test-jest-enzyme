@@ -2,7 +2,7 @@ import React from "react";
 import { shallow } from "enzyme";
 
 import { findByTestAttr, storeFactory } from "../../../test/testUtils";
-import Input, { UnconnectedInput } from ".";
+import Input, { UnconnectedInput } from "./";
 
 /**
  * Factory function to create a ShallowWrapper for the Input component.

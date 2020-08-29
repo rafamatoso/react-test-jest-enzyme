@@ -2,7 +2,7 @@ import React from "react";
 import { shallow } from "enzyme";
 
 import { findByTestAttr, checkProps } from "../../../test/testUtils";
-import SecretWordReveal from "./SecretWordReveal";
+import SecretWordReveal from "./";
 
 const secretWord = "party";
 const defaultProps = { display: false, secretWord };
