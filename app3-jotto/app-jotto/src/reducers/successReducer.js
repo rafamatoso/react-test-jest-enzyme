@@ -11,6 +11,9 @@ export default (state = false, action) => {
     case actionsTypes.CORRECT_GUESS:
       return true;
 
+    case actionsTypes.RESET_GAME:
+      return false;
+
     default:
       return state;
   }
