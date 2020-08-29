@@ -23,6 +23,7 @@ describe("redux properties", () => {
     const success = true;
     const wrapper = setup({ success });
     const successProp = wrapper.instance().props.success;
+
     expect(successProp).toBe(success);
   });
 
@@ -30,6 +31,7 @@ describe("redux properties", () => {
     const secretWord = "party";
     const wrapper = setup({ secretWord });
     const secretWordProp = wrapper.instance().props.secretWord;
+
     expect(secretWordProp).toBe(secretWord);
   });
 
@@ -37,12 +39,14 @@ describe("redux properties", () => {
     const guessedWords = [{ guessedWord: "train", letterMatchCount: 3 }];
     const wrapper = setup({ guessedWords });
     const guessedWordsProp = wrapper.instance().props.guessedWords;
+
     expect(guessedWordsProp).toEqual(guessedWords);
   });
 
   test("`getSecretWord` action creator is a function on the props", () => {
     const wrapper = setup();
     const getSecretWordProp = wrapper.instance().props.getSecretWord;
+
     expect(getSecretWordProp).toBeInstanceOf(Function);
   });
 });

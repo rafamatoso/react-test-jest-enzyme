@@ -21,23 +21,31 @@ describe("render", () => {
   test("renders without error", () => {
     const wrapper = setup();
     const component = findByTestAttr(wrapper, "component-enter-word-button");
+
     expect(component.length).toBe(1);
   });
+
   test("renders no text when `display` prop is false", () => {
     const wrapper = setup({ display: false });
     const component = findByTestAttr(wrapper, "component-enter-word-button");
+
     expect(component.text()).toBe("");
   });
+
   test("renders non-empty text when `display` prop is true", () => {
     const wrapper = setup({ display: true, buttonAction: () => {} });
     const component = findByTestAttr(wrapper, "component-enter-word-button");
+
     expect(component.text().length).not.toBe(0);
   });
+
   test("does not throw warning with expected props", () => {
     const expectedProps = { display: false };
+
     checkProps(EnterWordButton, expectedProps);
   });
 });
+
 test("calls `buttonAction` prop upon button click", () => {
   // create a mock function so we can see whether it's called on click
   const buttonActionMock = jest.fn();
