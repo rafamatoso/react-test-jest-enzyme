@@ -8,8 +8,9 @@ export class EnterWordForm extends React.Component {
     this.submitForm = this.submitForm.bind(this);
   }
 
-  submitForm(evt) {
-    evt.preventDefault();
+  submitForm(e) {
+    e.preventDefault();
+
     // don't submit empty word
     if (this.inputBox.current.value.length > 0) {
       this.props.formAction(this.inputBox.current.value);
