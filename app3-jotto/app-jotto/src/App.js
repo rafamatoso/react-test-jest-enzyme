@@ -1,17 +1,15 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import "./App.css";
-
+import GuessedWords from "./components/GuessedWords";
+import Congrats from "./components/Congrats";
+import Input from "./components/Input";
 import TotalGuesses from "./components/TotalGuesses";
 import NewWordButton from "./components/NewWordButton";
 import SecretWordReveal from "./components/SecretWordReveal";
 import EnterWordButton from "./components/EnterWordButton";
 import EnterWordForm from "./components/EnterWordForm";
 import ServerError from "./components/ServerError";
-import GuessedWords from "./components/GuessedWords";
-import Congrats from "./components/Congrats";
-import Input from "./components/Input";
 
 import {
   getSecretWord,
@@ -20,12 +18,15 @@ import {
   setUserEntering,
 } from "./actions";
 
+import "./App.css";
+
 export class UnconnectedApp extends Component {
   /**
    * @method componentDidMount
    * @returns {undefined}
    */
   componentDidMount() {
+    // Get the secret word
     this.props.getSecretWord();
   }
 
@@ -55,7 +56,9 @@ export class UnconnectedApp extends Component {
 
           <GuessedWords guessedWords={this.props.guessedWords} />
 
-          <TotalGuesses guessCount={this.props.guessedWords.length} />
+          {this.props.guessedWords.length > 0 && (
+            <TotalGuesses guessesCount={this.props.guessedWords.length} />
+          )}
 
           <EnterWordButton
             display={this.props.guessedWords.length === 0}
@@ -64,9 +67,12 @@ export class UnconnectedApp extends Component {
         </div>
       );
     }
+
     return (
       <div className="container">
-        <h1>Jotto</h1>
+        <h1>
+          {"<"} Jotto {">"}
+        </h1>
         {contents}
       </div>
     );

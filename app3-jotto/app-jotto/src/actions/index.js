@@ -70,18 +70,16 @@ export const guessWord = (guessedWord) => {
  * @param {dispatch} dispatch - Redux Thunk dispatch.
  *
  */
-const getSecretWordWordnikDispatch = (dispatch) => {
-  return axios
-    .get(WORDNIK_URL)
-    .then((response) => {
-      dispatch({
-        type: actionsTypes.SET_SECRET_WORD,
-        payload: response.data.word,
-      });
-    })
-    .catch((err) => {
-      dispatch({ type: actionsTypes.SERVER_ERROR });
+const getSecretWordWordnikDispatch = async (dispatch) => {
+  try {
+    const response = await axios.get(WORDNIK_URL);
+    dispatch({
+      type: actionsTypes.SET_SECRET_WORD,
+      payload: response.data.word,
     });
+  } catch (err) {
+    dispatch({ type: actionsTypes.SERVER_ERROR });
+  }
 };
 
 /**
