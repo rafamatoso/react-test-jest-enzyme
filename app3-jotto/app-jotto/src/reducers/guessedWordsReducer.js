@@ -11,6 +11,9 @@ export default (state = [], action) => {
     case actionsTypes.GUESS_WORD:
       return [...state, action.payload];
 
+    case actionsTypes.RESET_GAME:
+      return [];
+
     default:
       return state;
   }

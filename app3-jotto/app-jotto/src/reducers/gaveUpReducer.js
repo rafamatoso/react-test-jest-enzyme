@@ -11,7 +11,7 @@
  confusing than necessary, however, so we'll live with the inefficiency.
 */
 
-import { actionTypes } from "../actions";
+import { actionsTypes } from "../actions";
 
 /**
  * @function gaveUp
@@ -21,10 +21,10 @@ import { actionTypes } from "../actions";
  */
 export default (state = false, action) => {
   switch (action.type) {
-    case actionTypes.GIVE_UP:
+    case actionsTypes.GIVE_UP:
       return true;
 
-    case actionTypes.RESET_GAME:
+    case actionsTypes.RESET_GAME:
       return false;
 
     default:
