@@ -10,7 +10,7 @@ const defaultProps = { success: false };
 /**
  * Factory function to create a ShallowWrapper for the Congrats component.
  * @function setup
- * @param {object} testValues - COntext values specific to this setup.
+ * @param {object} testValues - Context values specific to this setup.
  * @returns {ShallowWrapper}
  */
 const setup = ({ success, language }) => {

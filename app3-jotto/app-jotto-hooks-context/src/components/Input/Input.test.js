@@ -1,19 +1,28 @@
 import React from "react";
-import { shallow } from "enzyme";
+import { mount, ReactWrapper } from "enzyme";
 
 import { findByTestAttr, checkProps } from "../../../test/testUtils";
 import { Input } from "./Input";
+import LanguageContext from "../../context/languageContext";
 
 /**
- * Setup function for input component.
- * @returns {ShallowWrapper}
+ * Factory function to create a ShallowWrapper for the Congrats component.
+ * @param {object} testValues - Context values specific to this setup.
+ * @returns {ReactWrapper}
  */
-const setup = (secretWord = "party") => {
-  return shallow(<Input secretWord={secretWord} />);
+const setup = ({ language, secretWord }) => {
+  language = language || "en";
+  secretWord = secretWord || "party";
+
+  return mount(
+    <LanguageContext.Provider value={language}>
+      <Input secretWord={secretWord} />
+    </LanguageContext.Provider>
+  );
 };
 
 test("Input renders without error", () => {
-  const wrapper = setup();
+  const wrapper = setup({});
   const inputComponent = findByTestAttr(wrapper, "component-input");
 
   expect(inputComponent.length).toBe(1);
@@ -32,7 +41,7 @@ describe("state controlled input field", () => {
 
     React.useState = jest.fn(() => ["", mockSetCurrentGuess]);
 
-    wrapper = setup();
+    wrapper = setup({});
   });
 
   test("state updates with value of input box upon change", () => {
@@ -50,5 +59,19 @@ describe("state controlled input field", () => {
     submitButton.simulate("click", { preventDefault() {} });
 
     expect(mockSetCurrentGuess).toHaveBeenCalledWith("");
+  });
+
+  describe("languagePicker", () => {
+    test("correctly renders submit string in english", () => {
+      const wrapper = setup({ language: "en" });
+      const submitButton = findByTestAttr(wrapper, "submit-button");
+      expect(submitButton.text()).toBe("Submit");
+    });
+
+    test("correctly renders submit string in emoji", () => {
+      const wrapper = setup({ language: "emoji" });
+      const submitButton = findByTestAttr(wrapper, "submit-button");
+      expect(submitButton.text()).toBe("🚀");
+    });
   });
 });
