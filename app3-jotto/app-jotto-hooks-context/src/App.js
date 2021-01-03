@@ -1,10 +1,14 @@
 import React from "react";
 import hookActions from "./actions/hookActions";
-import { Input } from "./components/Input/Input";
-import "./App.css";
 import languageContext from "./context/languageContext";
+import successContext from "./context/successContext";
 
 import LanguagePicker from "./components/LanguagePicker/languagePicker";
+import { Input } from "./components/Input/Input";
+import Congrats from "./components/Congrats/Congrats";
+import GuessedWords from "./components/GuessedWords/GuessedWords";
+
+import "./App.css";
 
 /**
  * Reducer to update state, called automatically by dispatch
@@ -57,8 +61,12 @@ function App() {
     <div className="container" data-test="component-app">
       <h1>Jotto</h1>
       <languageContext.Provider value={state.language}>
-        <LanguagePicker setLanguage={setLanguage}></LanguagePicker>
-        <Input secretWord={state.secretWord} />
+        <LanguagePicker setLanguage={setLanguage} />
+        <successContext.SuccessProvider>
+          <Congrats />
+          <Input secretWord={state.secretWord} />
+        </successContext.SuccessProvider>
+        {/* <GuessedWords /> */}
       </languageContext.Provider>
     </div>
   );
