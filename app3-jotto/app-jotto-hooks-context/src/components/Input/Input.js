@@ -32,9 +32,14 @@ export const Input = ({ secretWord }) => {
           className="btn btn-primary mb-2"
           onClick={(e) => {
             e.preventDefault();
-
             // TODO: update guessedWords
-            // TODO: check against secretWord and update succeed
+            // check against secretWord and update succeed
+
+            if (currentGuess === secretWord) {
+              setSuccess(true);
+            }
+
+            // clear input box
             setCurrentGuess("");
           }}
         >
