@@ -1,7 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-
-import { findByTestAttr, checkProps } from "../../../test/testUtils";
+import { checkProps, findByTestAttr } from "../../../test/testUtils";
 import LanguagePicker from "./languagePicker";
 
 const mockSetLanguage = jest.fn();

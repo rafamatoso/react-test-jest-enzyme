@@ -1,18 +1,17 @@
 import React from "react";
 import { mount } from "enzyme";
 import { findByTestAttr } from "../test/testUtils";
-
+import GuessedWords from "./components/GuessedWords/GuessedWords";
+import { Input } from "./components/Input/Input";
 import guessedWordsContext from "./context/guessedWordsContext";
 import successContext from "./context/successContext";
-import { Input } from "./components/Input/Input";
-import GuessedWords from "./components/GuessedWords/GuessedWords";
 
 function setup(guessedWordsStrings = [], secretWord = "party") {
   const wrapper = mount(
     <guessedWordsContext.GuessedWordsProvider>
       <successContext.SuccessProvider>
-        <Input secretWord={secretWord}></Input>
-        <GuessedWords></GuessedWords>
+        <Input secretWord={secretWord} />
+        <GuessedWords />
       </successContext.SuccessProvider>
     </guessedWordsContext.GuessedWordsProvider>
   );

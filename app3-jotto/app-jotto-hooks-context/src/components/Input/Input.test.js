@@ -1,11 +1,10 @@
 import React from "react";
-import { mount, ReactWrapper } from "enzyme";
-
-import { findByTestAttr, checkProps } from "../../../test/testUtils";
-import { Input } from "./Input";
+import { mount } from "enzyme";
+import { checkProps, findByTestAttr } from "../../../test/testUtils";
+import guessedWordsContext from "../../context/guessedWordsContext";
 import LanguageContext from "../../context/languageContext";
 import successContext from "../../context/successContext";
-import guessedWordsContext from "../../context/guessedWordsContext";
+import { Input } from "./Input";
 
 /**
  * Factory function to create a ShallowWrapper for the Congrats component.

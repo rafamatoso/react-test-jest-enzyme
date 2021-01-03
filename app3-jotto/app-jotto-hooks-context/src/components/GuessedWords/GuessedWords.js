@@ -1,8 +1,7 @@
 import React from "react";
-
-import stringsModule from "../../helpers/language/language";
-import languageContext from "../../context/languageContext";
 import guessedWordsContext from "../../context/guessedWordsContext";
+import languageContext from "../../context/languageContext";
+import stringsModule from "../../helpers/language/language";
 
 const GuessedWords = () => {
   const [guessedWords] = guessedWordsContext.useGuessedWords();

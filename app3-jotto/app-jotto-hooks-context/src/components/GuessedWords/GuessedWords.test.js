@@ -1,9 +1,8 @@
 import React from "react";
 import { shallow } from "enzyme";
 import { findByTestAttr } from "../../../test/testUtils";
-import GuessedWords from "./GuessedWords";
-
 import guessedWordsContext from "../../context/guessedWordsContext";
+import GuessedWords from "./GuessedWords";
 
 /**
  * Factory function to create a ShallowWrapper for the GuessedWords component.

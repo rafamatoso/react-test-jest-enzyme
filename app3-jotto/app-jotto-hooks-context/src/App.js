@@ -1,14 +1,12 @@
 import React from "react";
 import hookActions from "./actions/hookActions";
-import languageContext from "./context/languageContext";
-import successContext from "./context/successContext";
-
-import LanguagePicker from "./components/LanguagePicker/languagePicker";
-import { Input } from "./components/Input/Input";
 import Congrats from "./components/Congrats/Congrats";
 import GuessedWords from "./components/GuessedWords/GuessedWords";
+import { Input } from "./components/Input/Input";
+import LanguagePicker from "./components/LanguagePicker/languagePicker";
 import guessedWordsContext from "./context/guessedWordsContext";
-
+import languageContext from "./context/languageContext";
+import successContext from "./context/successContext";
 import "./App.css";
 
 /**

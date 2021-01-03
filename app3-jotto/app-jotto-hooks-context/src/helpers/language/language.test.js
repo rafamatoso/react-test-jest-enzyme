@@ -1,4 +1,5 @@
 import languageModule from "./language";
+
 const { getStringByLanguage } = languageModule;
 
 const strings = {
