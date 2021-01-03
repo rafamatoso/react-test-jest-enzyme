@@ -5,6 +5,7 @@ import { findByTestAttr, checkProps } from "../../../test/testUtils";
 import { Input } from "./Input";
 import LanguageContext from "../../context/languageContext";
 import successContext from "../../context/successContext";
+import guessedWordsContext from "../../context/guessedWordsContext";
 
 /**
  * Factory function to create a ShallowWrapper for the Congrats component.
@@ -19,7 +20,9 @@ const setup = ({ language, secretWord, success }) => {
   return mount(
     <LanguageContext.Provider value={language}>
       <successContext.SuccessProvider value={[success, jest.fn()]}>
-        <Input secretWord={secretWord} />
+        <guessedWordsContext.GuessedWordsProvider>
+          <Input secretWord={secretWord} />
+        </guessedWordsContext.GuessedWordsProvider>
       </successContext.SuccessProvider>
     </LanguageContext.Provider>
   );

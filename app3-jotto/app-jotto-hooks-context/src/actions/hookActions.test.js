@@ -19,7 +19,7 @@ describe("moxios tests", () => {
 
       request.respondWith({
         status: 200,
-        response: secretWord,
+        response: { id: 0, word: secretWord },
       });
     });
 
