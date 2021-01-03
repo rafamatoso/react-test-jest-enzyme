@@ -1,1 +1,1 @@
-export const wordnikKey = "";
+export const WORDNIK_KEY = "";
