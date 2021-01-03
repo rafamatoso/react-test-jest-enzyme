@@ -7,6 +7,7 @@ import guessedWordsContext from "../../context/guessedWordsContext";
 const GuessedWords = () => {
   const [guessedWords] = guessedWordsContext.useGuessedWords();
   const language = React.useContext(languageContext);
+
   let contents;
 
   if (guessedWords.length === 0) {

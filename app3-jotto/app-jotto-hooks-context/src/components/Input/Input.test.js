@@ -4,19 +4,23 @@ import { mount, ReactWrapper } from "enzyme";
 import { findByTestAttr, checkProps } from "../../../test/testUtils";
 import { Input } from "./Input";
 import LanguageContext from "../../context/languageContext";
+import successContext from "../../context/successContext";
 
 /**
  * Factory function to create a ShallowWrapper for the Congrats component.
  * @param {object} testValues - Context values specific to this setup.
  * @returns {ReactWrapper}
  */
-const setup = ({ language, secretWord }) => {
+const setup = ({ language, secretWord, success }) => {
   language = language || "en";
   secretWord = secretWord || "party";
+  success = success || false;
 
   return mount(
     <LanguageContext.Provider value={language}>
-      <Input secretWord={secretWord} />
+      <successContext.SuccessProvider value={[success, jest.fn()]}>
+        <Input secretWord={secretWord} />
+      </successContext.SuccessProvider>
     </LanguageContext.Provider>
   );
 };
@@ -74,4 +78,9 @@ describe("state controlled input field", () => {
       expect(submitButton.text()).toBe("🚀");
     });
   });
+});
+
+test("input component does not show when success is true", () => {
+  const wrapper = setup({ secretWord: "party", success: true });
+  expect(wrapper.isEmptyRender()).toBe(true);
 });
