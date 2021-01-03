@@ -5,7 +5,7 @@ let URL;
 const LOCALHOST = "http://localhost:3030";
 
 if (WORDNIK_KEY) {
-  URL = `https://api.wordnik.com/v4/words.json/randomWord?hasDictionaryDef=true&minCorpusCount=1000&minDictionaryCount=100&maxDictionaryCount=-1&minLength=5&maxLength=5&api_key=${wordnikKey}`;
+  URL = `https://api.wordnik.com/v4/words.json/randomWord?hasDictionaryDef=true&minCorpusCount=1000&minDictionaryCount=100&maxDictionaryCount=-1&minLength=5&maxLength=5&api_key=${WORDNIK_KEY}`;
 } else {
   URL = LOCALHOST;
 }
